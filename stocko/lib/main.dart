@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stocko/authentication/landing.dart';
+import 'package:stocko/utils/theme_constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +15,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Stocko',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: ThemeConstants.scaffoldBgColor,
+        appBarTheme:
+            const AppBarTheme(backgroundColor: ThemeConstants.primaryColor),
+        elevatedButtonTheme: const ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor:
+                MaterialStatePropertyAll(ThemeConstants.primaryColor),
+            shape: MaterialStatePropertyAll(
+              StadiumBorder(),
+            ),
+          ),
+        ),
         useMaterial3: true,
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const LandingPage(),
     );
   }
 }
